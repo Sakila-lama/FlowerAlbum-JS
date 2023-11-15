@@ -1,0 +1,97 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+h1 {
+    text-align: center;
+    color: #141313;
+}
+
+#gallery {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figure {
+    margin: 20px 0;
+    width: 50%; /* Set the width of the figure to be 70% of its parent */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+figure img {
+    width: 100%; /* Image will fill the figure */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Removes bottom space/line */
+}
+
+figcaption {
+    font-style: italic;
+    color: #141313;
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure the ul takes the full width */
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: auto; /* Adjust thumbnail size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Adjustments for thumbnails in a row for wider screens */
+@media (min-width: 600px) {
+    ul {
+        flex-direction: row;
+        flex-wrap: wrap; /* Wrap thumbnails if they don't fit in one row */
+        justify-content: center; /* Center thumbnails horizontally */
+    }
+
+    ul li {
+        margin: 5px; /* Adjust thumbnail margins for spacing */
+    }
+}
+
+/* Frame styles */
+#gallery figure img,
+#gallery ul li img {
+    border: 5px solid #8B7D7B; 
+    padding: 2px; 
+    background-color: #fff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for thumbnail images */
+#gallery ul li img:hover {
+    border-color: #6D5E5C; /* Darker border color on hover */
+    transform: scale(1.05); /* Slightly scale up thumbnails on hover */
+}
+
+/* Filters for active/inactive thumbnails */
+ul li img.inactive {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+ul li img.active {
+    filter: none;
+}
